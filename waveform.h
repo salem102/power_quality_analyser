@@ -38,5 +38,7 @@ typedef struct {
 
 double compute_rms(const WaveformSample *samples, int n, size_t phase_offset);
 double compute_peak_to_peak(const WaveformSample *samples, int n, size_t phase_offset);
+double compute_dc_offset(const WaveformSample *samples, int n, size_t phase_offset);
+int count_clipped(const WaveformSample *samples, int n, size_t phase_offset);
 
 #endif // WAVEFORM_H

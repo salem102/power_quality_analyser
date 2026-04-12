@@ -37,3 +37,27 @@ double compute_peak_to_peak(const WaveformSample *samples, int n, size_t phase_o
     }
     return vmax - vmin;
 }
+
+// compute_dc_offset
+double compute_dc_offset(const WaveformSample *samples, int n, size_t phase_offset)
+{
+    double sum = 0.0;
+    const WaveformSample *ptr = samples;
+    for (int i = 0; i < n; i++, ptr++) {
+        sum += get_voltage(ptr, phase_offset);
+    }
+    return sum / (double)n;
+}
+
+// count_clipped
+int count_clipped(const WaveformSample *samples, int n, size_t phase_offset)
+{
+    int count = 0;
+    const WaveformSample *ptr = samples;
+    for (int i = 0; i < n; i++, ptr++) {
+        double v = get_voltage(ptr, phase_offset);
+        if (v < 0.0) v = -v;
+        if (v >= CLIP_THRESHOLD) count++;
+    }
+    return count;
+}
