@@ -53,7 +53,7 @@ WaveformSample *load_csv(const char *filename, int *out_count)
     // read each data row one by one
     while (fgets(line, sizeof(line), fp) != NULL) {
 
-        // skip blank/carriage-return lines to handle Windows CRLF files
+        // ignore blank lines
         if (line[0] == '\n' || line[0] == '\r') continue;
 
         // if we somehow run out of space, grow the array
