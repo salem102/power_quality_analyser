@@ -164,7 +164,7 @@ int write_results(const char *filename,
                         phase_b->clipped_count +
                         phase_c->clipped_count;
 
-    // write report header section
+    // report header
     fprintf(fp, "Power Quality Waveform Analysis Report\n");
     fprintf(fp, "\n");
     fprintf(fp, "Input file  : %s\n", filename);
