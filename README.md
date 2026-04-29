@@ -51,18 +51,8 @@ power_quality_analyser/
    ```
 6. Ensure `power_quality_log.csv` is in the **working directory** (set in the same Run Configuration dialog).
 
-### Option 2: Command-Line with CMake
 
-```bash
-cd power_quality_analyser
-mkdir build && cd build
-cmake ..
-make
-cp ../power_quality_log.csv .
-./power_analyser power_quality_log.csv
-```
-
-### Option 3: Direct GCC (single command)
+### Option 2: Direct GCC (single command)
 
 ```bash
 gcc -std=c99 -Wall -Wextra main.c waveform.c io.c -o power_analyser -lm
